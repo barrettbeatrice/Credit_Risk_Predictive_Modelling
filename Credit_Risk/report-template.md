@@ -45,11 +45,12 @@ Accuracy: 0.99185
 Balanced Accuracy: 0.95205
 
 Precision
-    Healthy: 1.00
-    High-Risk: 0.85
+Healthy: 1.00
+High-Risk: 0.85
+
 Recall
-    Healthy: 0.99
-    High-Risk: 0.91
+Healthy: 0.99
+High-Risk: 0.91
 
 
 ## Analysis of Results and Summary
