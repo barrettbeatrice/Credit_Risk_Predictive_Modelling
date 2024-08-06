@@ -1,43 +1,32 @@
-# Module 20 Report Template
-
 ## Overview of the Analysis
 
-In this section, describe the analysis you completed for the machine learning models used in this Challenge. This might include:
 
 The primary objective of this analysis was to develop machine learning models to predict loan risk based on financial (i.e. lending) data.
 
-
-* Explain the purpose of the analysis.
 This model was made to predict and classify loans into two categories: Healthy Loans (Class 0) and High-Risk Loans (Class 1) based on the relevant financial risk factors or repayment potential (cf. "lending_data.csv").
 
 Ultimately, this was to predict the credit worthiness of potential borrowers from peer-to-peer lending services, allowing lenders to better assess their own risk exposure when deciding to grant a loan.
 
-* Explain what financial information the data was on, and what you needed to predict.
 The following financial data was utilized: loan size, interest rate, borrower income, debt-to-income ratio, number of credit accounts, derogatory marks, and total debt as predictive factors for "loan status".
 
-
-* Provide basic information about the variables you were trying to predict (e.g., `value_counts`).
 The lending data (lending_data.csv) was first loaded into a DataFrame and the "loan_status" column was designated as the target variable (y). The remaining columns were assigned as the features (X) (loan_size, interest_rate, borrower_income, debt_to_income, num_of_accounts, derogatory_marks, total_debt, loan_status).
 
+*Machine Learning Process
 
-
-* Describe the stages of the machine learning process you went through as part of this analysis.
 The data was split into training and testing sets for model training, fit, and subsequent evaluation.
 
-* Briefly touch on any methods you used (e.g., `LogisticRegression`, or any other algorithms).
 In the analysis, the scikit-learn library's LogisticRegression method was used for its suitability in binary classification tasks (in this case, Healthy versus High-Risk loans) and was trained using the training data from the CSV file. 
 A logistic regression model was applied and fitted by using the training data (X_train and y_train). This method provided predictions for the test portion of the data, and the following evaluation metrics, including balanced accuracy score, confusion matrix, and classification report, were computed to assess the model's performance.
 
+A confusion matrix was then generated.
 
-Generated a confusion matrix.
-
-Printed the classification report.
+The classification report was subsequently printed.
 
 These evaluation metrics were used to test the model for both labels of loans: The accuracy scores indicate how well the model classifies instances correctly overall and in a balanced manner. Precision scores indicate the proportion of correctly identified instances among the instances classified as belonging to a particular class. Finally, recall scores indicate the proportion of correctly identified instances of a class among *all* instances that truly belong to that class.
  
 ## Results
 
-Using bulleted lists, describe the accuracy scores and the precision and recall scores of all machine learning models.
+Accuracy scores and the precision and recall scores of all machine learning models:
 
 Results
 Accuracy: 0.99185
@@ -66,13 +55,12 @@ In a similar dynamic per the model's accuracy measurements, the Precision is als
 The recall for the "Healthy" class is very high at over 99%, showing alow false negative rate for the "Healthy" class.
 The recall for the "High-Risk" class is also high at 91%. This all indicates good performance in capturing "High-Risk" instances, although slightly lower than the recall for the "Healthy" class.
 
-
-* Which one seems to perform best? How do you know it performs best?
+* Analysis of "Best Fit"
 The predictionss for the Healthy loans (=0) perform the better of the two classes. The prediction accuracy is near perfect and there are many more Healthy loans data points amongst the dataset to classify.
 On the other hand, High-Risk loans (=1) are disproportionately less in number so the model has less data to work with in its classification and results in nearly 13% of High-Risk loans being misclassifie as Healthy.
 
 
-* Does performance depend on the problem we are trying to solve? (For example, is it more important to predict the `1`'s, or predict the `0`'s? )
+* Prioritization of predictions (i.e. which class is the focus?)
 
 While none of the loans used for training are for very large amounts of money, a loan that defaults could cost more than the interest earned from many healthy loans.
 
